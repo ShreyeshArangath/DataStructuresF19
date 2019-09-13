@@ -74,7 +74,7 @@ linked_list_node_t* insertAfterTheValue(float dataToInsert, float dataToSearch, 
 
 linked_list_node_t * deleteAtTheBeginning(linked_list_node_t **head, linked_list_node_t **tail) {
     if (*head==NULL){
-        std::cout<<"No records exist in the list. Deletion not possible.\n";
+        std::cout<<"No records exist in the list. Deletion at the beginning is not possible.\n";
     }
     else{
         if ((*head)->next == NULL){
@@ -85,6 +85,28 @@ linked_list_node_t * deleteAtTheBeginning(linked_list_node_t **head, linked_list
         *head=(*head)->next;
         free(temp);
 
+    }
+    return *head;
+}
+
+linked_list_node_t * deleteAtTheEnd(linked_list_node_t **head, linked_list_node_t **tail){
+    if (*tail == NULL && *head==NULL){
+        std::cout<<"No records exist in the list. Deletion from the end is not possible.\n";
+    }
+    else{
+        linked_list_node_t *cur = *head;
+        if (cur==*tail){
+            *head=*tail=NULL;
+            free(cur);
+            return *head;
+        }
+        while(cur->next != *tail){
+            cur=cur->next;
+        }
+        linked_list_node_t *temp = *tail;
+        cur->next=NULL;
+        *tail=cur;
+        free(temp);
     }
     return *head;
 }
@@ -109,9 +131,9 @@ int main(){
     head=insertAfterTheValue(1.6,2.4,&head,&tail);
     printFunction(&head);
     deleteAtTheBeginning(&head,&tail);
-    deleteAtTheBeginning(&head,&tail);
-    deleteAtTheBeginning(&head,&tail);
-    deleteAtTheBeginning(&head,&tail);
+    std::cout<<"\n";
+    printFunction(&head);
+    deleteAtTheEnd(&head,&tail);
     std::cout<<"\n";
     printFunction(&head);
     return 0;
