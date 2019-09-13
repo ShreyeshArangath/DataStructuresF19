@@ -11,6 +11,7 @@ typedef struct Node {
 linked_list_node_t* createNewNode(float data){
     linked_list_node_t *temp = (linked_list_node_t *)malloc(sizeof(linked_list_node_t));
     temp->data=data;
+    temp->next=NULL;
     return temp;
 }
 
@@ -111,25 +112,101 @@ linked_list_node_t * deleteAtTheEnd(linked_list_node_t **head, linked_list_node_
     return *head;
 }
 
-linked_list_node_t* readFromFile(char* file_name,linked_list_node_t **head,linked_list_node_t **tail){
-    std::ifstream file(file_name);
-    float temp;
-    while(file >> temp){
-        insertAtTheEnd(temp,head,tail);
-    }
-    return *head;
-}
-
 linked_list_node_t* insertInOrder(float data, linked_list_node_t **head, linked_list_node_t **tail){
     linked_list_node_t *cur = *head;
-    linked_list_node_t *prev = NULL;
+    linked_list_node_t *prev = *head;
     linked_list_node_t *new_node = createNewNode(data);
+
+
+    if (*head == NULL){
+        *head=*tail=new_node;
+        return *head;
+    }
+    else if ((*head)->data >= data){
+        new_node->next=*head;
+        *head=new_node;
+        return *head;
+    }
     while(cur!=NULL && cur->data < data){
         prev=cur;
         cur=cur->next;
     }
+    prev->next=new_node;
+    new_node->next=cur;
 
     return *head;
+}
+
+linked_list_node_t* readFromFile(char* file_name,linked_list_node_t **head,linked_list_node_t **tail){
+    std::ifstream file(file_name);
+    float temp;
+    while(file >> temp){
+        insertInOrder(temp,head,tail);
+    }
+    return *head;
+}
+
+float findMax(linked_list_node_t **head){
+    if (*head == NULL){
+        std::cout<<"No records exist in the list. Maximum cannot be found.\n";
+        return 0.0;
+    }
+    linked_list_node_t *cur = *head;
+    float max = cur->data;
+    while(cur!=NULL){
+        if (cur->data > max){
+            max=cur->data;
+        }
+        cur=cur->next;
+    }
+    return max;
+}
+
+float findMin(linked_list_node_t **head){
+    if(*head==NULL){
+        std::cout << "No records exist in the list. Minimum cannot be found.\n";
+        return 0.0;
+    }
+    linked_list_node_t *cur = *head;
+    float min = cur->data;
+    while(cur!=NULL){
+        if (cur->data < min){
+            min=cur->data;
+        }
+        cur=cur->next;
+    }
+    return min;
+}
+
+int sizeOfList(linked_list_node_t **head){
+    int size=0;
+    linked_list_node_t *cur = *head;
+    if (cur==NULL) return 0;
+    do
+    {
+        size+=1;
+        cur=cur->next;
+    }while(cur!=NULL);
+    return size;
+}
+
+float mean(linked_list_node_t **head){
+    int length = sizeOfList(head);
+    float sum=0;
+    linked_list_node_t *cur = *head;
+    if(cur==NULL){
+        std::cout<<"There are no elements in the list.";
+        return 0;
+    }
+    while(cur!=NULL){
+        sum+=cur->data;
+        cur=cur->next;
+    }
+    return sum/length;
+}
+
+float median(linked_list_node_t **head){
+    
 }
 
 void printFunction(linked_list_node_t **head){
@@ -156,9 +233,15 @@ int main(){
     // std::cout<<"\n";
     // printFunction(&head);
     // deleteAtTheEnd(&head,&tail);
-    // std::cout<<"\n";
     // printFunction(&head);
-    head=readFromFile(file_name,&head,&tail);
+    readFromFile(file_name,&head,&tail);
     printFunction(&head);
+    std::cout<<"\n";
+    std::cout<< "The max is: "<<findMax(&head);
+    std::cout<<"\n";
+    std::cout<< "The min is: " <<findMin(&head);
+    std::cout<<"\n";
+    std::cout<<sizeOfList(&head) << "\n";
+    std::cout<<mean(&head) << "\n";
     return 0;
 }
