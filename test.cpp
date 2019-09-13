@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdlib>
 #include <iostream>
+#include <fstream>
 
 typedef struct Node {
     float data;
@@ -111,6 +111,27 @@ linked_list_node_t * deleteAtTheEnd(linked_list_node_t **head, linked_list_node_
     return *head;
 }
 
+linked_list_node_t* readFromFile(char* file_name,linked_list_node_t **head,linked_list_node_t **tail){
+    std::ifstream file(file_name);
+    float temp;
+    while(file >> temp){
+        insertAtTheEnd(temp,head,tail);
+    }
+    return *head;
+}
+
+linked_list_node_t* insertInOrder(float data, linked_list_node_t **head, linked_list_node_t **tail){
+    linked_list_node_t *cur = *head;
+    linked_list_node_t *prev = NULL;
+    linked_list_node_t *new_node = createNewNode(data);
+    while(cur!=NULL && cur->data < data){
+        prev=cur;
+        cur=cur->next;
+    }
+
+    return *head;
+}
+
 void printFunction(linked_list_node_t **head){
     linked_list_node_t *cur=*head;
     while(cur!=NULL){
@@ -120,21 +141,24 @@ void printFunction(linked_list_node_t **head){
 }
 
 int main(){
+    char file_name[100]="FloatLinkedListInput.txt";
     linked_list_node_t *head = NULL;
     linked_list_node_t *tail = NULL;
-    head=insertAtBeginning(1.2,&head,&tail);
-    head=insertAtBeginning(2.4,&head,&tail);
-    head=insertAtTheEnd(3.2,&head,&tail);
-    head=insertAtBeginning(3.3,&head,&tail);
-    printFunction(&head);
-    std::cout<<"\n";
-    head=insertAfterTheValue(1.6,2.4,&head,&tail);
-    printFunction(&head);
-    deleteAtTheBeginning(&head,&tail);
-    std::cout<<"\n";
-    printFunction(&head);
-    deleteAtTheEnd(&head,&tail);
-    std::cout<<"\n";
+    // head=insertAtBeginning(1.2,&head,&tail);
+    // head=insertAtBeginning(2.4,&head,&tail);
+    // head=insertAtTheEnd(3.2,&head,&tail);
+    // head=insertAtBeginning(3.3,&head,&tail);
+    // printFunction(&head);
+    // std::cout<<"\n";
+    // head=insertAfterTheValue(1.6,2.4,&head,&tail);
+    // printFunction(&head);
+    // deleteAtTheBeginning(&head,&tail);
+    // std::cout<<"\n";
+    // printFunction(&head);
+    // deleteAtTheEnd(&head,&tail);
+    // std::cout<<"\n";
+    // printFunction(&head);
+    head=readFromFile(file_name,&head,&tail);
     printFunction(&head);
     return 0;
 }
