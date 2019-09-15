@@ -6,85 +6,201 @@
 
 // TEST CASES for Function insertAtTheBeginning:
 // Test case1: The test input is a float data along with linked list pointers.   //List head->NULL
-    // Input: 3.2,head,tail
+    // Input: 3.2,&head,&tail
     // Expected output: head->3.2->NULL
     // Actual Output: head->3.2->NULL
 // Test case2: Testing invalid char input //List: head-> 3.2->NULL
-    // Input: 'a',head,tail
+    // Input: 'a',&head,&tail
     // Expected Output: head->'a'->3.2->->NULL
     // Actual output: head->97->3.2->->NULL
 
 
 // TEST CASES for insertAtTheEnd:
 // Test case1: The test input is a float data along with linked list pointers. //List - head->97->3.2->NULL
-    // Input: 1.6,head,tail
+    // Input: 1.6,&head,&tail
     // Expected output: head->97->3.2->1.6->NULL
     // Actual Output: head->97->3.2->1.6->NULL
 // Test case2: Testing invalid char input  //List: head->97->3.2->NULL
-    // Input: 'b',head,tail
+    // Input: 'b',&head,&tail
     // Expected Output:head->97->3.2->'b'->NULL
     // Actual output: head->97->3.2->98->NULL
 
 // TEST CASES for insertAfterTheValue:
 // Test case1: Basic float input. //List - 3.2->NULL
-    // Input: 2.4,3.2,head,tail
+    // Input: 2.4,3.2,&head,&tail
     // Expected output: 3.2->2.4
     // Actual Output:  3.2->2.4
 // Test case2: Testing invalid char input
-    // Input: 3.2,'b',head,tail //3.2->NULL
+    // Input: 3.2,'b',&head,&tail //3.2->NULL
     // Expected Output:3.2->'b'
     // Actual output: 3.2->98
 
 // TEST CASES for Function deleteAtTheBeginning:
-// Test case1: Basic deletion //List: 3.2->98->16->NULL
-    // Input: head,tail  
-    // Expected output: 3.2->98
-    // Actual Output: 3.2->98
+// Test case1: Basic deletion using floats//List: 3.2->98->16->NULL
+    // Input: &head,&tail  
+    // Expected output: head->98->16
+    // Actual Output: head->98->16
 // Test case2: Deletion from an empty list.  //List: head->NULL
-    // Input: head,tail
-    // Expected Output: 
-    // Actual output:
+    // Input: &head,&tail
+    // Expected Output: No records exist in the list. Deletion at the beginning is not possible.
+    // Actual output: No records exist in the list. Deletion at the beginning is not possible.
 
 // TEST CASES for Function deleteAtTheEnd:
-// Test case1:  
-    // Input:
-    // Expected output:
-    // Actual Output:
+// Test case1:  Basic deletion using floats //List: 3.2->98->16->NULL
+    // Input: &head,&tail
+    // Expected output: 3.2->98->NULL
+    // Actual Output:  3.2->98->NULL
 // Test case2:
-    // Input:
-    // Expected Output:
-    // Actual output:
+    // Input: Deletion from an empty list. //List: head->NULL
+    // Expected Output: No records exist in the list. Deletion from the end is not possible.
+    // Actual output: No records exist in the list. Deletion from the end is not possible.
 
-// TEST CASES for Function deleteNodeWithValue:
-// Test case1:  
-    // Input:
-    // Expected output:
-    // Actual Output:
+// TEST CASES for Function deleteNodeWithValue: //List: 3.2->98->16->NULL
+// Test case1: Deleting a value that exists in the list. 
+    // Input: 98,&head,&tail
+    // Expected output: 3.2->16->NULL
+    // Actual Output: 3.2->16->NULL
 // Test case2:  
-    // Input:
-    // Expected Output:
-    // Actual output:
+    // Input: Deleting a value that doesn't exist in the list //List: 3.2->98->16->NULL
+    // Expected Output: No records exist in the list with the specified values. Deletion not possible.
+    // Actual output: No records exist in the list with the specified values. Deletion not possible.
 
 // TEST CASES for Function insertInOrder:
-// Test case1:  
-    // Input:
-    // Expected output:
-    // Actual Output:
-// Test case2:  
-    // Input:
-    // Expected Output:
-    // Actual output:
+// Test case1: Inserting a float value //List: 3.2->9.8->16->NULL
+    // Input: 17, &head, &tail
+    // Expected output: 3.2->9.8->16->17->NULL
+    // Actual Output: 3.2->9.8->16->17->NULL
+// Test case2: Inserting a char value //List: 3.2->9.8->16->NULL
+    // Input: 'a', &head, &tail
+    // Expected Output: 3.2->9.8->16->'a'->NULL
+    // Actual output: 3.2->9.8->16->97->NULL
+
+// TEST CASES for Function selectionSort:
+// Test case1: Sorting a list of floats.  //List: 3.2->98->16->NULL
+    // Input: &head
+    // Expected output: 3.2->16->98->NULL
+    // Actual Output: 3.2->16->98->NULL
+// Test case2:  Sorting a list of characters. //List : 'a'->'z'->'c'->NULL
+    // Input: &head
+    // Expected Output: 'a'->'c'->'z'->NULL
+    // Actual output: 97->99->122->NULL
 
 
 // TEST CASES for Function readFromFile:
-// Test case1:  
-    // Input:
-    // Expected output:
-    // Actual Output:
+// Test case1: Providing a valid file name
+    // Input: FloatingLinkedListInput.txt, &head, &tail
+    // Expected output: Reads in all the data from the file and stores it in the list. 
+    // Actual Output: Reads in all the data from the file and stores it in the list. 
+// Test case2:  Providing an invalid file name. 
+    // Input: FlotingLL.txt, &head, &tail
+    // Expected Output: Your file does not exist.
+    // Actual output: Your file does not exist.
+
+// TEST CASES for Function findMax:
+// Test case1: 3.2->98->16->NULL
+    // Input: &head
+    // Expected output: 98
+    // Actual Output: 98
+// Test case2: NULL  
+    // Input: &head
+    // Expected Output: No records exist in the list. Maximum cannot be found.
+    // Actual output: No records exist in the list. Maximum cannot be found.
+
+// TEST CASES for Function findMin:
+// Test case1:  3.2->98->16->NULL
+    // Input: &head
+    // Expected output: 3.2
+    // Actual Output: 3.2
+// Test case2:  NULL
+    // Input: &head
+    // Expected Output: No records exist in the list. Maximum cannot be found.
+    // Actual output: No records exist in the list. Maximum cannot be found.
+
+// TEST CASES for Function sizeOfList:
+// Test case1:  3.2->98->16->NULL
+    // Input: &head
+    // Expected output: 3
+    // Actual Output: 3
+// Test case2:  NULL
+    // Input: &head
+    // Expected Output: 0
+    // Actual output: 0
+
+// TEST CASES for Function mean:
+// Test case1:  3.2->98->16->NULL
+    // Input: &head
+    // Expected output: 39.0667
+    // Actual Output: 39.0667
 // Test case2:  
-    // Input:
-    // Expected Output:
-    // Actual output:
+    // Input: NULL
+    // Expected Output: There are no elements in the list.
+    // Actual output: There are no elements in the list.
+
+// TEST CASES for Function median_helper_function:
+// Test case1:  3.2->98->16->NULL
+    // Input: &length, &even-odd
+    // Expected output: 1
+    // Actual Output: 1
+// Test case2:  
+    // Input: NULL
+    // Expected Output: 0
+    // Actual output: 0
+
+// TEST CASES for Function median:
+// Test case1:  3.2->98->16->NULL
+    // Input: &head
+    // Expected output: 98  
+    // Actual Output: 98
+// Test case2:  3.2->98->16->17->NULL
+    // Input: &head
+    // Expected Output:57
+    // Actual output: 57
+
+// TEST CASES for Function mode:
+// Test case1:  3.2->98->16->16->NULL
+    // Input: &head
+    // Expected output: 16
+    // Actual Output: 16
+// Test case2:  3.2->98->16->NULL
+    // Input: &head
+    // Expected Output: -1 (DNE)
+    // Actual output: -1 
+
+// TEST CASES for Function range:
+// Test case1:  3.2->98->16->NULL
+    // Input: &head
+    // Expected output: 94.8
+    // Actual Output: 94.8
+// Test case2:  NULL
+    // Input: &head
+    // Expected Output: 0
+    // Actual output: 0
+
+// TEST CASES for Function removeDuplicates:
+// Test case1:  3.2->98->16->16->NULL
+    // Input: &head
+    // Expected output: 3.2->98->16->NULL
+    // Actual Output: 3.2->98->16->NULL
+// Test case2:  3.2->98->16->NULL
+    // Input: &head
+    // Expected Output: 3.2->98->16->NULL
+    // Actual output: 3.2->98->16->NULL
+
+// TEST CASES for Function printFunction:
+// Test case1: 3.2->98->16->NULL
+    // Input: &head
+    // Expected output: 
+        // 3.2
+        // 98
+        // 16
+    // Actual Output:
+        // 3.2
+        // 98
+        // 16
+// Test case2:  NULL
+    // Input: &head
+    // Expected Output: ''
+    // Actual output:  ''
 
 
 // ---------------------------------------------------------------------------
@@ -341,6 +457,10 @@ void selectionSort(linked_list_node_t** head)
 // -------------------------------------------------------------------------------
 linked_list_node_t* readFromFile(char* file_name,linked_list_node_t **head,linked_list_node_t **tail){
     std::ifstream file(file_name); //Creates a input file stream for the specified file name 
+    if(file.fail()) {
+        std::cout<<"Your file does not exist.";
+        return *head;
+    }
     float temp; // Stores distinct floating values in the file temporarily
     while(file >> temp){
         insertAtBeginning(temp,head,tail);
