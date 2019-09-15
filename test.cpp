@@ -580,6 +580,7 @@ float median(linked_list_node_t **head){
     int index_of_median=median_helper_function(&length,&even_odd); //Stores the index of the median value. 
     float median; //Stores the median value. 
     int i=0; //Serves the purpose of a list iterator used to locate the median value. 
+    selectionSort(head);
     linked_list_node_t *cur = *head; //Stores a pointer to the head node. 
     if (cur==NULL){
         return 0.0;
@@ -676,57 +677,150 @@ void removeDuplicates( linked_list_node_t **head){
 // PURPOSE: To print all the elements of a linked list.  
 // -------------------------------------------------------------------------------
 void printFunction(linked_list_node_t **head){
-    linked_list_node_t *cur=*head;
+    linked_list_node_t *cur=*head; //Stores the pointer to the current node in the list. 
     while(cur!=NULL){
-        std::cout<<cur->data<<"\n";
+        std::cout<<cur->data<<"-> ";
         cur=cur->next;
     }
 }
 
 int main(){
 
-    char file_name[100]="FloatLinkedListInput.txt";
+    char file_name[100]; //"FloatLinkedListInput.txt"
     linked_list_node_t *head = NULL;
     linked_list_node_t *tail = NULL;
+    int option;
+    float value_to_insert;
+    float value_to_search;
+    do{
+    
+    std::cout << "\n\n Linked List Functions " ;
+    std::cout << "1: Insert a node at the beginning of the list. \n" ;
+    std::cout << "2: Insert a node at the end of the list. \n" ;
+    std::cout << "3: Insert a node after the given node. \n" ;
+    std::cout << "4: Delete a node from the beginning of a list. \n" ;
+    std::cout << "5: Delete a node from the end of the list. \n" ;
+    std::cout << "6: Delete a node with a particular value \n" ;
+    std::cout << "7: Insert a node in order. \n" ;
+    std::cout << "8: Sort the linked list. \n";
+    std::cout << "9: Read data in from a file \n";
+    std::cout << "10: Find the maximum value in the list. \n";
+    std::cout << "11: Find the minimum value in the list. \n";
+    std::cout << "12: Find the length of the list. \n";
+    std::cout << "13: Find the mean of the list. \n";
+    std::cout << "14: Find the median of the list. \n";
+    std::cout << "15: Find the mode of the list. \n";
+    std::cout << "16: Find the range of the list. \n";
+    std::cout << "17: Remove the duplicates from the list. \n";
+    std::cout << "18: Print the list. \n";
+	std::cout << "**************************  -1: EXIT **************************" ;
+	std::cout << "\n\n Enter your option : " ;
+    std::cin>>option;
 
-    // insertAtBeginning(3.2,&head,&tail);
-    // insertAtBeginning('a',&head,&tail);
-    // insertAtTheEnd(1.6,&head,&tail);
-    // insertAtTheEnd('b',&head,&tail);
-    // insertAfterTheValue(2.4,3.2,&head,&tail);
-    // insertAfterTheValue(2.4,'b',&head,&tail);
+    switch (option){
+        case 1: {
+            std::cout<<"Please enter a floating point value that you wish to insert: ";
+            std::cin>>value_to_insert;
+            insertAtBeginning(value_to_insert,&head,&tail);
+            std::cout<<"\n";
+            break;
+        }
+        case 2: {
+            std::cout<<"Please enter a floating point value that you wish to insert: ";
+            std::cin>>value_to_insert;
+            insertAtTheEnd(value_to_insert,&head,&tail);
+            std::cout<<"\n";
+            break;
+        }
+        case 3: {
+            std::cout<<"Please enter a floating point value that you wish to insert: ";
+            std::cin>>value_to_insert;
+            std::cout<<"Please enter a floating point value that you wish to insert it after: ";
+            std::cin>>value_to_search;
+            std::cout<<"\n";
+            insertAfterTheValue(value_to_insert,value_to_search,&head,&tail);
+            break;
+        }
+        case 4: {
+            deleteAtTheBeginning(&head,&tail);
+            std::cout<<"\n";
+            break;
+        }
+        case 5: {
+            deleteAtTheEnd(&head,&tail);
+            std::cout<<"\n";
+            break;
+        }
+        case 6: {
+            std::cout<<"Please enter a floating point value that you wish to delete from the list: ";
+            std::cin>>value_to_search;
+            std::cout<<"\n";
+            deleteNodeWithValue(value_to_search,&head,&tail);
+            break;
+        }
+        case 7: {
+            std::cout<<"Please enter a floating point value that you wish to insert in order: ";
+            std::cin>>value_to_insert;
+            std::cout<<"\n";
+            insertInOrder(value_to_insert,&head,&tail);
+            break;
+        }
+        case 8: {
+            std::cout<<"\n";
+            selectionSort(&head);
+            break;
+        }
+        case 9: {
+            std::cout<<"Please enter the name of your file:  ";
+            std::cin>>file_name;
+            readFromFile(file_name,&head,&tail);
+            std::cout<<"\nThe file has been read into the linked list.\n";
+            break;
+        }
+        case 10: {
+            std::cout<<"The maximum value in the list is: "<<findMax(&head);
+            break;
+        }
+        case 11: {
+            std::cout<<"The minimum value in the list is: "<<findMin(&head);
+            break;       
+        }
+        case 12: {
+            std::cout<<"The length of the list is: "<<sizeOfList(&head);
+            break;
+        }
+        case 13:{
+            std::cout<<"The mean value of the list is: "<<mean(&head);
+            break;
+        }
+        case 14: {
+            std::cout<<"The median value of the list is: "<<median(&head);
+            break;
+        }
+        case 15: {
+            std::cout<<"The mode value of the list is: "<<mode(&head);
+            break;
+        }
+        case 16: {
+            std::cout<<"The range of the list is: "<<range(&head);
+            break;
+        }
+        case 17: {
+            removeDuplicates(&head);
+            std::cout<<"The duplicates have been removed from the list.";
+            break;
+        }
+        case 18: {
+            std::cout<<"\n\nYour list currently looks like: \n";
+            printFunction(&head);
+            break;
+        }
 
-    // head=insertAtBeginning(2.4,&head,&tail);
-    // head=insertAtTheEnd(3.2,&head,&tail);
-    // head=insertAtTheEnd(3.2,&head,&tail);
-    // head=insertAtBeginning(3.3,&head,&tail);
-    // printFunction(&head);
+    }
 
-    // std::cout<<"\n";
-    // head=insertAfterTheValue(1.6,2.4,&head,&tail);
-    // printFunction(&head);
-    // deleteAtTheBeginning(&head,&tail);
-    // std::cout<<"\n";
-    // printFunction(&head);
-    // deleteAtTheEnd(&head,&tail);
-    // printFunction(&head);
 
-    // readFromFile(file_name,&head,&tail);
-    // printFunction(&head);
-    // std::cout<<"\n";
-    // std::cout<< "The max is: "<<findMax(&head);
-    // std::cout<<"\n";
-    // std::cout<< "The min is: " <<findMin(&head);
-    // std::cout<<"\n";
-    // std::cout<<"The size of the list is: "<<sizeOfList(&head) << "\n";
-    // std::cout<<"The mean value of the list is: "<<mean(&head) << "\n";
-    // std::cout<<"The median value of the list is: "<<median(&head) << "\n";
-    // std::cout<<"The mode of the list is: " << mode(&head) << "\n";
-    // std::cout<<"The range of the list is: "<< range(&head) <<"\n";
-    // selectionSort(&head);
-    // printFunction(&head);
-    // removeDuplicates(&head); 
-    // std::cout<<"The size of the list is: "<<sizeOfList(&head) << "\n";
+    }while(option!=-1);
+    std::cout<<"\n Thank you! \n"
 
 
     return 0;

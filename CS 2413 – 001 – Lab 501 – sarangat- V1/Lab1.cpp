@@ -1,8 +1,8 @@
 // --------------------------------------------------------------------------------
-// AUTHOR: Shreyesh Arangath
-// FILENAME: Lab1.cpp
-// SPECIFICATION: Create a linked list and its associated functions such as insertion, deletion, max, min, mode, mean, and median.
-// FOR: CS 2413 Data Structure Section 001 - 501
+// AUTHOR:              Shreyesh Arangath
+// FILENAME:            Lab1.cpp
+// SPECIFICATION:       Create a linked list and its associated functions such as insertion, deletion, max, min, mode, mean, and median.
+// FOR:                 CS 2413 Data Structure Section 001 - 501
 
 // TEST CASES for Function insertAtTheBeginning:
 // Test case1: The test input is a float data along with linked list pointers.   //List head->NULL
@@ -465,6 +465,7 @@ linked_list_node_t* readFromFile(char* file_name,linked_list_node_t **head,linke
     while(file >> temp){
         insertAtBeginning(temp,head,tail);
     }
+    file.close();
     return *head;
 }
 
@@ -684,9 +685,34 @@ void printFunction(linked_list_node_t **head){
     }
 }
 
+
+// --------------------------------------------------------------------------------
+// NAME: writeToFile
+// INPUT PARAMETERS: file name, pointer to the head, pointer to the tail . 
+// OUTPUT: Writes out the output to the file.
+// PURPOSE: Outputs data to the file.  
+// -------------------------------------------------------------------------------
+void writeToFile(char* file_name, linked_list_node_t **head, linked_list_node_t **tail){
+    readFromFile(file_name,head,tail);
+    std::ofstream out_file("output.txt");
+    if (!out_file){
+        std::cout<<"\nThe file could not be created.\n";
+        return;
+    }
+    out_file<<"The max value is: "<< findMax(head) << "\n";
+    out_file<<"The min value is: "<< findMin(head) << "\n";
+    out_file<<"The mean value is: "<< mean(head) << "\n";
+    out_file<<"The median value is: "<< median(head) << "\n";
+    out_file<<"The mode value is: "<< mode(head) << "\n";
+    out_file<<"The range value is: "<< range(head) << "\n";
+
+    out_file.close();
+
+}
+
 int main(){
 
-    char file_name[100]; //"FloatLinkedListInput.txt"
+    char file_name[100]="FloatLinkedListInput.txt";
     linked_list_node_t *head = NULL;
     linked_list_node_t *tail = NULL;
     int option;
@@ -820,7 +846,8 @@ int main(){
 
 
     }while(option!=-1);
-    std::cout<<"\n Thank you! \n"
+    std::cout<<"\nThank you! \n";
+    writeToFile(file_name,&head,&tail);
 
 
     return 0;
