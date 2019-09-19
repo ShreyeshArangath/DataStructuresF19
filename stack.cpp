@@ -63,19 +63,3 @@ int isBalance(char* stack, int top){
     }
     return balanced;
 }
-
-
-int main(){
-    char stack[MAX];
-    int top=-1;
-    char top_val;
-    push('[', stack, &top);
-    push('(', stack, &top);
-    push('{', stack, &top);
-    push('}', stack, &top);
-    push(')', stack, &top);
-    push(']', stack, &top);
-    std::cout<<isBalance(stack,top);
-
-    std::cout<<top_val<<'\n';
-}
