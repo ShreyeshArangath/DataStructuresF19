@@ -1,3 +1,30 @@
+// --------------------------------------------------------------------------------
+// AUTHOR: Shreyesh Arangath
+// FILENAME: Lab2.cpp
+// SPECIFICATION: Create a Stack ADT using arrays. Write isBalanced and infixToPostfix functions for the stack. 
+// FOR: CS 2413 Data Structure Section 001 - 501
+
+// TEST CASES for Function :
+// Test case1: Description of the test case (example: test input is odd number)
+// Input: provide the input
+// Expected output: expected output according to your function design
+// Actual Output: provide the actual output of the function
+// Test case2: Description of the test case (example: test invalid input)
+// Input: provide the input
+// Expected Output:
+// Actual output
+
+// TEST CASES for Function (name of the required function 2):
+// Test case1: Description of the test case (example: test input is odd number)
+// Input: provide the input
+// Expected output: expected output according to your function design
+// Actual Output: provide the actual output of the function
+// Test case2: Description of the test case (example: test invalid input)
+// Input: provide the input
+// Expected Output:
+// Actual output
+// --------------------------------------------------------------------------------
+
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
@@ -154,19 +181,15 @@ int inFixToPostFix(char* expression, char* output){
 
 
 int main(){
-    // char stack[MAX];
-    // int top=-1;
-    // char top_val;
-    // char output[MAX];
-    // char expression[MAX]="122.532+1^23+53+23+1.23/32";
-    // inFixToPostFix(expression,output);
-    // std::cout<<output<<'\n';
-    // outFile<<output;
+    char stack[MAX];
+    int top=-1;
+    int flag=1;
     int option;
+    char element;
     do
     {
-        std::cout << "\n\n Stack ADT using Arrays \n \n " ;
-        outFile<<"\n\n Stack ADT using Arrays \n \n " ;
+        std::cout << "\n\n Stack ADT using Arrays \n \n" ;
+        outFile<<"\n\n Stack ADT using Arrays \n \n" ;
         std::cout << "1: Push an element onto the stack \n" ;
         outFile<<"1: Push an element onto the stack \n" ;
         std::cout << "2: Pop an element off the stack \n" ;
@@ -183,6 +206,99 @@ int main(){
         outFile<<"7. Change an expression from infix to postfix \n";
         std::cout << "-1 to Quit \n";
         std::cin>>option;
+        outFile<<option << '\n';
+
+        switch(option){
+            case 1: {
+                std::cout<<"Enter the element you want to push: ";
+                outFile<<"Enter the element you want to push: ";
+                std::cin>> element;
+                outFile<< element;
+                std::cout<<'\n';
+                outFile<<'\n';
+                flag=PUSH(element,stack,&top);
+                if (flag==1){
+                    std::cout<<"The element "<<element <<" has been pushed onto the stack \n";
+                    outFile<< "The element "<<element <<" has been pushed onto the stack \n";
+                }
+                break;
+            }
+            case 2: {
+                element=POP(stack,&top);
+                if(element!='-'){
+                    std::cout<<"The element "<<element<<" has been popped off the stack. \n";
+                    outFile<<"The element "<<element<<" has been popped off the stack. \n";
+                }
+                break;
+            }
+            case 3: {
+                flag=isEMPTY(stack,&top);
+                if(flag==1){
+                    std::cout<<"The stack is empty. \n";
+                    outFile<<"The stack is empty. \n";
+                }
+                else {
+                    std::cout<<"The stack is not empty. \n";
+                    outFile<<"The stack is not empty. \n";
+                }
+                break;
+            }
+            case 4: {
+                flag=isFULL(stack,&top);
+                if(flag==1){
+                    std::cout<<"The stack is full. \n";
+                    outFile<<"The stack is full. \n";
+                }
+                else{
+                    std::cout<<"The stack is not full. \n";
+                    outFile<<"The stack is not full. \n";
+                }
+                break;
+            }
+            case 5: {
+                element=PEEK(stack,&top);
+                std::cout<<"The element at the top of the stack is: "<<element<<"\n";
+                outFile<<"The element at the top of the stack is: "<<element<<"\n";
+                break;
+            }
+            case 6: {
+                char expression[MAX];
+                std::cout<<"Please enter an expression that you want to check: ";
+                outFile<<"Please enter an expression that you want to check: ";
+                std::cin>>expression;
+                outFile<<expression;
+                int i = strlen(expression);
+                flag=isBalance(expression, i);
+                if (flag==1){
+                    std::cout<<"\nThe expression is balanced. \n";
+                    outFile<<"\nThe expression is balanced. \n";
+                }
+                else{
+                    std::cout<<"\nThe expression is not balanced. \n";
+                    outFile<<"\nThe expression is not balanced. \n";
+                }
+                break;
+            }
+            case 7: {
+                char expression[MAX];
+                char output[MAX];
+                std::cout<< "Please enter an expression that you'd like to convert. ";
+                outFile<<"Please enter an expression that you'd like to convert. ";
+                std::cin>>expression;
+                std::cout<<"\n";
+                outFile<<expression<<"\n";
+                flag=inFixToPostFix(expression,output);
+                if (flag!=1){
+                    std::cout<<"The expression is not valid. \n";
+                    outFile<<"The expression is not valid. \n";
+                }
+                else{
+                    print(output);
+                }
+
+            }
+            
+        }
     }while(option!=-1);
     return 0;
 }
