@@ -111,9 +111,9 @@
 #include <fstream>
 #include <iostream>
 #include <cstring>
-#define MAX 100
-#define TRUE 1
-#define FALSE 0
+#define MAX 100 //MAX SIZE OF THE STACK
+#define TRUE 1 //TRUE VAL
+#define FALSE 0 //FALSE VAL
 
 
 std::ofstream outFile("output.txt"); //The file stream pointer to the output file. 
@@ -185,6 +185,7 @@ char POP(char* stack, int *top){
 // OUTPUT: Returns the element at the top of the stack. 
 // PURPOSE: To peek at the stack. 
 char PEEK(char* stack, int* top){
+    if (isEMPTY(stack,top)) return '-';
     return stack[*top];
 }
 
@@ -381,12 +382,17 @@ int main(){
             }
             case 5: {
                 element=PEEK(stack,&top);
+                if (element=='-'){
+                std::cout<<"The stack is empty\n";
+                outFile<<"The stack is empty\n";
+                break;
+                }
                 std::cout<<"The element at the top of the stack is: "<<element<<"\n";
                 outFile<<"The element at the top of the stack is: "<<element<<"\n";
                 break;
             }
-            case 6: {
-                char expression[MAX];
+            case 6: { 
+                char expression[MAX]; //To store the mathematical expression from user
                 std::cout<<"Please enter an expression that you want to check: ";
                 outFile<<"Please enter an expression that you want to check: ";
                 std::cin>>expression;
@@ -404,10 +410,10 @@ int main(){
                 break;
             }
             case 7: {
-                char expression[MAX];
-                char output[MAX];
-                std::cout<< "Please enter an expression that you'd like to convert. ";
-                outFile<<"Please enter an expression that you'd like to convert. ";
+                char expression[MAX]; //To store the infix expression from the user
+                char output[MAX]; //To store the output of the conversion
+                std::cout<< "Please enter an expression that you'd like to convert: ";
+                outFile<<"Please enter an expression that you'd like to convert: ";
                 std::cin>>expression;
                 std::cout<<"\n";
                 outFile<<expression<<"\n";
@@ -420,6 +426,10 @@ int main(){
                     print(output);
                 }
 
+            }
+            case -1: {
+                std::cout<< "Thank you. \n";
+                outFile<<"Thank you. \n";
             }
             
         }
