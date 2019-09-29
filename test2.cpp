@@ -47,6 +47,12 @@ int main(){
     // enqueue(3, p3_queue, &head[2],&tail[2]);
     // current_status(p1_queue,p2_queue,p3_queue, head, tail);
 
+    //TEST FOR RANDOM NUMBERS
+    // srand(time(NULL));
+    // cout<<random_data_generator()<< " " << random_priority_generator()<<endl;
+    // cout<<random_data_generator()<< " " << random_priority_generator()<<endl;
+    // cout<<random_data_generator()<< " " << random_priority_generator()<<endl;
+    // cout<<random_data_generator()<< " " << random_priority_generator()<<endl;
 
     return 0;
 }

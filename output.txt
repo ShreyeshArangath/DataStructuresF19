@@ -1,0 +1,35 @@
+The initial status: 
+639 893 122 695 857 195 
+
+639 893  have exited the queue
+The status after 2 elements have exited the queue: 122 695 857 195 
+
+473 284 197  have entered the queue. 
+122 284  have exited the queue
+The status after 2 elements have exited the queue: 197 695 857 195 473 
+
+960 534 680  have entered the queue. 
+197 960  have exited the queue
+The status after 2 elements have exited the queue: 534 680 695 857 195 473 
+
+644 263 558  have entered the queue. 
+534 680 644 263  have exited the queue
+The status after 4 elements have exited the queue: 558 695 857 195 473 
+
+648 487 744  have entered the queue. 
+558 648  have exited the queue
+The status after 2 elements have exited the queue: 744 695 857 195 473 487 
+
+295 615 311  have entered the queue. 
+744 615  have exited the queue
+The status after 2 elements have exited the queue: 311 695 857 195 473 487 295 
+
+223 412 406  have entered the queue. 
+311 223  have exited the queue
+The status after 2 elements have exited the queue: 412 406 695 857 195 473 487 295 
+
+509 550 176  have entered the queue. 
+
+20 elements have been dequeued.
+The status after operations:
+695 857 195 473 487 295 
