@@ -1,35 +1,27 @@
 The initial status: 
-639 893 122 695 857 195 
+556 657 992 115 561 646 
 
-639 893  have exited the queue
-The status after 2 elements have exited the queue: 122 695 857 195 
+556 657 992 115  have exited the queue
+The status after 4 elements have exited the queue: 561 646 
 
-473 284 197  have entered the queue. 
-122 284  have exited the queue
-The status after 2 elements have exited the queue: 197 695 857 195 473 
+682 439 293  have entered the queue. 
+439 293  have exited the queue
+The status after 2 elements have exited the queue: 561 646 682 
 
-960 534 680  have entered the queue. 
-197 960  have exited the queue
-The status after 2 elements have exited the queue: 534 680 695 857 195 473 
+132 397 361  have entered the queue. 
+132 361 561 646  have exited the queue
+The status after 4 elements have exited the queue: 682 397 
 
-644 263 558  have entered the queue. 
-534 680 644 263  have exited the queue
-The status after 4 elements have exited the queue: 558 695 857 195 473 
+482 415 889  have entered the queue. 
+482 415 889 682  have exited the queue
+The status after 4 elements have exited the queue: 397 
 
-648 487 744  have entered the queue. 
-558 648  have exited the queue
-The status after 2 elements have exited the queue: 744 695 857 195 473 487 
+538 401 815  have entered the queue. 
+538 815 397 401  have exited the queue
+The status after 4 elements have exited the queue: 
 
-295 615 311  have entered the queue. 
-744 615  have exited the queue
-The status after 2 elements have exited the queue: 311 695 857 195 473 487 295 
-
-223 412 406  have entered the queue. 
-311 223  have exited the queue
-The status after 2 elements have exited the queue: 412 406 695 857 195 473 487 295 
-
-509 550 176  have entered the queue. 
+940 741 839  have entered the queue. 
 
 20 elements have been dequeued.
 The status after operations:
-695 857 195 473 487 295 
+940 741 839 
