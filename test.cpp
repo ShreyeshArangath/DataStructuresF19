@@ -7,6 +7,8 @@
 #define SIZE 10
 using namespace std;
 
+
+
 int isEmpty(int queue[], int head, int tail){
     if (head==-1 && tail==-1){
         return TRUE;
@@ -95,17 +97,21 @@ int dequeue(int queue[], int *head, int *tail){
 
 int dequeueWithPriority(int no_to_delete , int *dequeued_elements, int queue_1[], int queue_2[], int queue_3[], int head[], int tail[]){
     int number_dequeued=0;
-    while(number_dequeued<=no_to_delete){
+    int data;
+    while(number_dequeued<no_to_delete){
         if(!(isEmpty(queue_1, head[0], tail[0]))){
-            dequeue(queue_1,&head[0],&tail[0]);
+            data=dequeue(queue_1,&head[0],&tail[0]);
+            dequeued_elements[number_dequeued]=data;
             number_dequeued++;
         }
         else if(!(isEmpty(queue_2, head[1], tail[1]))){
-            dequeue(queue_2, &head[1],&tail[1]);
+            data=dequeue(queue_2, &head[1],&tail[1]);
+            dequeued_elements[number_dequeued]=data;
             number_dequeued++;
         }
         else if(!(isEmpty(queue_3, head[2], tail[2]))){
-            dequeue(queue_3,&head[2],&tail[2]);
+            data=dequeue(queue_3,&head[2],&tail[2]);
+            dequeued_elements[number_dequeued]=data;
             number_dequeued++;
         }
         else if(number_dequeued<no_to_delete){
@@ -144,7 +150,7 @@ int random_priority_generator(){
 } 
 
 int random_number_for_dequeue(){
-    return rand()%2+1;
+    return (rand()%2+1)*2;
 }
 
 int simulate_traffic(int queue1[], int queue2[], int queue3[], int head[], int tail[]){
@@ -152,44 +158,58 @@ int simulate_traffic(int queue1[], int queue2[], int queue3[], int head[], int t
     int add_elements=6;
     int count_of_elements_dequeued=0;
     int dequeued_elements[SIZE];
+    int enqueued_elements[SIZE];
     srand(time(NULL));
-    do{
+    do{ 
+    
         for(int i=0;i<add_elements;i++){
             int data=random_data_generator();
             int priority=random_priority_generator();
             status=enqueueWithPriority(data, priority, queue1, queue2, queue3, head, tail);
-            cout<<data<<" ";
+            enqueued_elements[i]=data;
         }
-        cout<<" have entered the queue"<<endl;
-
         if (add_elements==6){
             cout<<"The initial status: "<<endl;
             current_status(queue1, queue2, queue3, head, tail);
+            
+        }
+        else if (add_elements==3 and status!=FALSE){
+            print_queue(enqueued_elements,0,add_elements-1);
+            cout<<" have entered the queue. ";
         }
 
-        if (status==FALSE){
+        else if(status==FALSE){
             cout<<"There is an overflow."<<endl;
             break;
         }
 
         int no_to_dequeue = random_number_for_dequeue();
         count_of_elements_dequeued+=no_to_dequeue;
+
         if (count_of_elements_dequeued==20){
             status=FALSE;
-            cout<<"20 elements have been dequeued."<<endl;
+            cout<<"\n"<<"20 elements have been dequeued."<<endl;
             break;
         }
-        status=dequeueWithPriority(no_to_dequeue, queue1, queue2, queue3, head, tail);
+        status=dequeueWithPriority(no_to_dequeue, dequeued_elements, queue1, queue2, queue3, head, tail);
         if (status==FALSE){
-            cout<<"There is an undeflow."<<endl;
+            cout<<"\n"<<"There is an underflow."<<endl;
             break;
         }
-        cout<<"The status after "<< no_to_dequeue<< " elements have exited the queue."<<endl;
+        else{
+            cout<<"\n";
+            print_queue(dequeued_elements,0,no_to_dequeue-1);
+            cout<< " have exited the queue"<< endl;
+        }
+
+
+        cout<<"\n"<<"The status after "<< no_to_dequeue<< " elements have exited the queue: ";
         current_status(queue1, queue2, queue3, head, tail);
     
         add_elements=3;
         
     }while(status);
+
     cout<<"The status after operations:" <<endl;
     current_status(queue1, queue2, queue3, head, tail);
     return TRUE;
