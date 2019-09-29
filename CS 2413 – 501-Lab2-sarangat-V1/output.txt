@@ -1,0 +1,135 @@
+
+
+ Stack ADT using Arrays 
+ 
+1: Push an element onto the stack 
+2: Pop an element off the stack 
+3: Check if the stack is empty 
+4: Check if the stack is full 
+5: Peek at the stack 
+6: Check if an arithmetic expression is balanced 
+7. Change an expression from infix to postfix 
+1
+Enter the element you want to push: a
+The element a has been pushed onto the stack 
+
+
+ Stack ADT using Arrays 
+ 
+1: Push an element onto the stack 
+2: Pop an element off the stack 
+3: Check if the stack is empty 
+4: Check if the stack is full 
+5: Peek at the stack 
+6: Check if an arithmetic expression is balanced 
+7. Change an expression from infix to postfix 
+1
+Enter the element you want to push: b
+The element b has been pushed onto the stack 
+
+
+ Stack ADT using Arrays 
+ 
+1: Push an element onto the stack 
+2: Pop an element off the stack 
+3: Check if the stack is empty 
+4: Check if the stack is full 
+5: Peek at the stack 
+6: Check if an arithmetic expression is balanced 
+7. Change an expression from infix to postfix 
+1
+Enter the element you want to push: c
+The element c has been pushed onto the stack 
+
+
+ Stack ADT using Arrays 
+ 
+1: Push an element onto the stack 
+2: Pop an element off the stack 
+3: Check if the stack is empty 
+4: Check if the stack is full 
+5: Peek at the stack 
+6: Check if an arithmetic expression is balanced 
+7. Change an expression from infix to postfix 
+2
+The element c has been popped off the stack. 
+
+
+ Stack ADT using Arrays 
+ 
+1: Push an element onto the stack 
+2: Pop an element off the stack 
+3: Check if the stack is empty 
+4: Check if the stack is full 
+5: Peek at the stack 
+6: Check if an arithmetic expression is balanced 
+7. Change an expression from infix to postfix 
+3
+The stack is not empty. 
+
+
+ Stack ADT using Arrays 
+ 
+1: Push an element onto the stack 
+2: Pop an element off the stack 
+3: Check if the stack is empty 
+4: Check if the stack is full 
+5: Peek at the stack 
+6: Check if an arithmetic expression is balanced 
+7. Change an expression from infix to postfix 
+4
+The stack is not full. 
+
+
+ Stack ADT using Arrays 
+ 
+1: Push an element onto the stack 
+2: Pop an element off the stack 
+3: Check if the stack is empty 
+4: Check if the stack is full 
+5: Peek at the stack 
+6: Check if an arithmetic expression is balanced 
+7. Change an expression from infix to postfix 
+5
+The element at the top of the stack is: b
+
+
+ Stack ADT using Arrays 
+ 
+1: Push an element onto the stack 
+2: Pop an element off the stack 
+3: Check if the stack is empty 
+4: Check if the stack is full 
+5: Peek at the stack 
+6: Check if an arithmetic expression is balanced 
+7. Change an expression from infix to postfix 
+6
+Please enter an expression that you want to check: ((()))[][]
+The expression is balanced. 
+
+
+ Stack ADT using Arrays 
+ 
+1: Push an element onto the stack 
+2: Pop an element off the stack 
+3: Check if the stack is empty 
+4: Check if the stack is full 
+5: Peek at the stack 
+6: Check if an arithmetic expression is balanced 
+7. Change an expression from infix to postfix 
+7
+Please enter an expression that you'd like to convert: A-(B/C+(D%E*F)/G)*H
+A B C /D E F*% G/+ H*-Thank you. 
+
+
+ Stack ADT using Arrays 
+ 
+1: Push an element onto the stack 
+2: Pop an element off the stack 
+3: Check if the stack is empty 
+4: Check if the stack is full 
+5: Peek at the stack 
+6: Check if an arithmetic expression is balanced 
+7. Change an expression from infix to postfix 
+-1
+Thank you. 

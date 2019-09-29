@@ -1,6 +1,0 @@
-The max value is: 99.22
-The min value is: 2.14
-The mean value is: 50.6571
-The median value is: 46.765
-The mode value is: 45
-The range value is: 97.08
