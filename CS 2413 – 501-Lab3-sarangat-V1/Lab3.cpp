@@ -368,14 +368,19 @@ int simulate_traffic(int queue1[], int queue2[], int queue3[], int head[], int t
 
         int no_to_dequeue = random_number_for_dequeue(); //Stores the number of elements to be dequeued. 
         count_of_elements_dequeued+=no_to_dequeue; 
-
+        status=dequeueWithPriority(no_to_dequeue, dequeued_elements, queue1, queue2, queue3, head, tail);
         if (count_of_elements_dequeued==20){
             status=FALSE;
+            print_queue(dequeued_elements,0,no_to_dequeue-1);
+            cout<< " have exited the queue"<< endl;
+            outputFile<< " have exited the queue"<< endl;
+            cout<<"The status after "<< no_to_dequeue<< " elements have exited the queue: "<<endl;
+            outputFile<<"The status after "<< no_to_dequeue<< " elements have exited the queue: "<<endl;
             outputFile<<"\n\n"<<"20 elements have been dequeued."<<endl;
             cout<<"\n\n"<<"20 elements have been dequeued."<<endl;
             break;
         }
-        status=dequeueWithPriority(no_to_dequeue, dequeued_elements, queue1, queue2, queue3, head, tail);
+        // status=dequeueWithPriority(no_to_dequeue, dequeued_elements, queue1, queue2, queue3, head, tail);
         if (status==FALSE){
             outputFile<<"\n"<<"There is an underflow."<<endl;
             cout<<"\n"<<"There is an underflow."<<endl;
