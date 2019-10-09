@@ -1,0 +1,8 @@
+Please enter a decimal number: 6
+Please enter the base you'd like to convert to: 2
+Base 2 conversion of 6 is: 110
+Press 1 to continue, -1 to quit: 1
+Please enter a decimal number: 26
+Please enter the base you'd like to convert to: 16
+Base 16 conversion of 26 is: 1A
+Press 1 to continue, -1 to quit: -1
