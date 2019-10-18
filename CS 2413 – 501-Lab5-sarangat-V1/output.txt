@@ -1,0 +1,83 @@
+1. Insert an element into the doubly linked list 
+2. Delete an element from the doubly linked list 
+3. Print the doubly linked list 
+4. Reverse the doubly linked list 
+-1. Exit 
+1
+Please enter a number that you would like to insert: 23
+1. Insert an element into the doubly linked list 
+2. Delete an element from the doubly linked list 
+3. Print the doubly linked list 
+4. Reverse the doubly linked list 
+-1. Exit 
+1
+Please enter a number that you would like to insert: 22
+1. Insert an element into the doubly linked list 
+2. Delete an element from the doubly linked list 
+3. Print the doubly linked list 
+4. Reverse the doubly linked list 
+-1. Exit 
+1
+Please enter a number that you would like to insert: 34
+1. Insert an element into the doubly linked list 
+2. Delete an element from the doubly linked list 
+3. Print the doubly linked list 
+4. Reverse the doubly linked list 
+-1. Exit 
+3
+34 <=> 22 <=> 23 <=> NULL
+
+1. Insert an element into the doubly linked list 
+2. Delete an element from the doubly linked list 
+3. Print the doubly linked list 
+4. Reverse the doubly linked list 
+-1. Exit 
+2
+23
+
+1. Insert an element into the doubly linked list 
+2. Delete an element from the doubly linked list 
+3. Print the doubly linked list 
+4. Reverse the doubly linked list 
+-1. Exit 
+3
+34 <=> 22 <=> NULL
+
+1. Insert an element into the doubly linked list 
+2. Delete an element from the doubly linked list 
+3. Print the doubly linked list 
+4. Reverse the doubly linked list 
+-1. Exit 
+4
+
+1. Insert an element into the doubly linked list 
+2. Delete an element from the doubly linked list 
+3. Print the doubly linked list 
+4. Reverse the doubly linked list 
+-1. Exit 
+3
+22 <=> 34 <=> NULL
+
+1. Insert an element into the doubly linked list 
+2. Delete an element from the doubly linked list 
+3. Print the doubly linked list 
+4. Reverse the doubly linked list 
+-1. Exit 
+2
+34
+
+1. Insert an element into the doubly linked list 
+2. Delete an element from the doubly linked list 
+3. Print the doubly linked list 
+4. Reverse the doubly linked list 
+-1. Exit 
+3
+22 <=> NULL
+
+1. Insert an element into the doubly linked list 
+2. Delete an element from the doubly linked list 
+3. Print the doubly linked list 
+4. Reverse the doubly linked list 
+-1. Exit 
+-1
+

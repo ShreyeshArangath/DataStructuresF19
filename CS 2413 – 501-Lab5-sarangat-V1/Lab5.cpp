@@ -58,8 +58,11 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <fstream>
 
 using namespace std;
+
+ofstream outputFile("output.txt"); 
 
 typedef struct Node{
     int data;
@@ -130,9 +133,11 @@ void print_list(node_t **head, node_t **tail){
    node_t *temp =*head; //Stores the address of the tail 
    while(temp!=NULL){
        cout<<temp->data<<" <=> ";
+       outputFile<<temp->data<<" <=> ";
        temp=temp->next;
    }
    cout<<"NULL"<<endl;
+    outputFile<<"NULL"<<endl;
 }
 
 // NAME: reverse_doubly_linked_list
@@ -164,17 +169,29 @@ int main(){
         cout<<"4. Reverse the doubly linked list "<<endl;
         cout<<"-1. Exit "<<endl;
         cin>>option;
+        
+        outputFile<<"1. Insert an element into the doubly linked list "<< endl;
+        outputFile<<"2. Delete an element from the doubly linked list "<< endl;
+        outputFile<<"3. Print the doubly linked list "<< endl;
+        outputFile<<"4. Reverse the doubly linked list "<<endl;
+        outputFile<<"-1. Exit "<<endl;
+        outputFile<<option<<endl;
+
         switch (option){
             case 1:
             {
                 cout<<"Please enter a number that you would like to insert: ";
+                outputFile<<"Please enter a number that you would like to insert: ";
                 cin>>value;
+                outputFile<<value;
                 insertAtTheBeginning(value, &head, &tail);
                 break;
             }
             case 2:
-            {
-                cout<<deleteFromTheEnd(&head,&tail)<<" has been deleted from the list.";
+            {   
+                value=deleteFromTheEnd(&head,&tail);
+                cout<<value<<" has been deleted from the list."<<endl;
+                outputFile<<value<<endl;
                 break;
             }
             case 3 : {
@@ -192,6 +209,7 @@ int main(){
             }
         }
         cout<<"\n";
+        outputFile<<endl;
     }while(option!=-1);
     return 0;
 }
