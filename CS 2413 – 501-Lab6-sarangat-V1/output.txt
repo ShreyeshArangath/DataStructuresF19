@@ -1,0 +1,71 @@
+1. Insert into the tree
+2. Delete from the tree
+3. Search the tree
+4. Display
+-1. To quit
+1
+What would you want to insert?: 5
+1. Insert into the tree
+2. Delete from the tree
+3. Search the tree
+4. Display
+-1. To quit
+1
+What would you want to insert?: 2
+1. Insert into the tree
+2. Delete from the tree
+3. Search the tree
+4. Display
+-1. To quit
+1
+What would you want to insert?: 10
+1. Insert into the tree
+2. Delete from the tree
+3. Search the tree
+4. Display
+-1. To quit
+1
+What would you want to insert?: 1
+1. Insert into the tree
+2. Delete from the tree
+3. Search the tree
+4. Display
+-1. To quit
+1
+What would you want to insert?: 4
+1. Insert into the tree
+2. Delete from the tree
+3. Search the tree
+4. Display
+-1. To quit
+1
+What would you want to insert?: 7
+1. Insert into the tree
+2. Delete from the tree
+3. Search the tree
+4. Display
+-1. To quit
+1
+What would you want to insert?: 12
+1. Insert into the tree
+2. Delete from the tree
+3. Search the tree
+4. Display
+-1. To quit
+4
+5 
+2 10 
+1 4 7 12 
+1. Insert into the tree
+2. Delete from the tree
+3. Search the tree
+4. Display
+-1. To quit
+3
+What would you like to search for?: 7
+10 7 7 1. Insert into the tree
+2. Delete from the tree
+3. Search the tree
+4. Display
+-1. To quit
+-1
