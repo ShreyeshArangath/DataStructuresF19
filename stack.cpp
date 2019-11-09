@@ -29,6 +29,7 @@
 #include <fstream>
 #include <iostream>
 #include <cstring>
+#include "stack.h"
 #define MAX 100
 #define TRUE 1
 #define FALSE 0

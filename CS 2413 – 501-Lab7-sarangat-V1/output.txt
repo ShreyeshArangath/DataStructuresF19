@@ -1,0 +1,30 @@
+Enter an infix expression: (2+3)*5-5+3
+1. Display the postfix expression
+2. Display the prefix expression
+3. Check if it is complete
+4. Evaluate the tree
+1
+23+5*5-3+
+1. Display the postfix expression
+2. Display the prefix expression
+3. Check if it is complete
+4. Evaluate the tree
+2
++-*+23553
+1. Display the postfix expression
+2. Display the prefix expression
+3. Check if it is complete
+4. Evaluate the tree
+3
+Not complete. 
+1. Display the postfix expression
+2. Display the prefix expression
+3. Check if it is complete
+4. Evaluate the tree
+4
+23
+1. Display the postfix expression
+2. Display the prefix expression
+3. Check if it is complete
+4. Evaluate the tree
+-1
