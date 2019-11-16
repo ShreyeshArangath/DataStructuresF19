@@ -9,6 +9,7 @@
 using namespace std;
 
 char max_val;
+int max_index;
 typedef struct VerticeNode{
     char vertice;
     int weight;
@@ -51,6 +52,7 @@ int read_csv(char* file_name, graph_vertice_t graph[][MAX]){
         }
         createNewEdge(graph, vertice1, vertice2, weight);
     }
+    max_index = getIndex(max_val);
     fclose(inputFile);
     return 1;
 }
@@ -73,15 +75,15 @@ int isZero(graph_vertice_t arr[][MAX], int row){
 }
 
 void print_vertice_and_edge(graph_vertice_t arr[][MAX],int row){
-    for(int i=0; i<MAX; i++){
-        if((arr[row][i]).weight>0) cout<<arr[row][i].weight <<" ";
-        else cout<<0<<" ";
+    for(int i=0; i<=max_index; i++){
+        if((arr[row][i]).weight>0) cout<<arr[row][i].weight <<"\t";
+        else cout<<0<<"\t";
     }
     cout<<endl;
 }
 
 void Display(graph_vertice_t graph[][MAX]){
-    for(int i=0; i<MAX; i++){
+    for(int i=0; i<=max_index; i++){
         if(!isZero(graph, i)){
             print_vertice_and_edge(graph, i);
         }
@@ -123,7 +125,7 @@ void printShortestDistance(int distance_from_source[], int source){
     do{
         cout<<source_val<<"\t\t\t"<<getChar(index)<<"\t\t\t"<<distance_from_source[index]<<endl;
         index++;
-    }while(index<MAX);
+    }while(index<=max_index);
 }
 
 void Shortest_Distance(graph_vertice_t graph[][MAX], int source){
@@ -133,11 +135,11 @@ void Shortest_Distance(graph_vertice_t graph[][MAX], int source){
 
     initialize_algorithm(set_of_vertices, distance_from_source, source);
 
-    for(int i=0; i<MAX-1; i++){
+    for(int i=0; i<=max_index-1; i++){
         min_index = findMinimumDistance(set_of_vertices, distance_from_source);
         set_of_vertices[min_index]=1;
 
-        for(int j=0; j<MAX; j++){
+        for(int j=0; j<=max_index; j++){
             if(updatePathLength(graph, set_of_vertices, distance_from_source, min_index, j)){
                 distance_from_source[j]=distance_from_source[min_index]+graph[min_index][j].weight;
             }
