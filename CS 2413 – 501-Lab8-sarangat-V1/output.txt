@@ -1,0 +1,65 @@
+(base) Shreyeshs-Air-82a2:Data Structures shreyesh$ ./test
+1. Input numbers into an array
+2. Max Heapify
+3. Build the heap
+4. Delete the root
+5. Print the heap
+-1. Quit
+1
+Please enter a number (-1 to quit): 16
+Please enter a number (-1 to quit): 4
+Please enter a number (-1 to quit): 10
+Please enter a number (-1 to quit): 14
+Please enter a number (-1 to quit): 7
+Please enter a number (-1 to quit): 9
+Please enter a number (-1 to quit): 3
+Please enter a number (-1 to quit): 2
+Please enter a number (-1 to quit): 8
+Please enter a number (-1 to quit): 1
+Please enter a number (-1 to quit): -1
+1. Input numbers into an array
+2. Max Heapify
+3. Build the heap
+4. Delete the root
+5. Print the heap
+-1. Quit
+3
+1. Input numbers into an array
+2. Max Heapify
+3. Build the heap
+4. Delete the root
+5. Print the heap
+-1. Quit
+5
+16
+14 10
+8 7 9 3
+2 4 1  
+ 
+1. Input numbers into an array
+2. Max Heapify
+3. Build the heap
+4. Delete the root
+5. Print the heap
+-1. Quit
+4
+16 has been deleted.
+1. Input numbers into an array
+2. Max Heapify
+3. Build the heap
+4. Delete the root
+5. Print the heap
+-1. Quit
+5
+14
+8 10
+4 7 9 3
+2  1 
+ 
+1. Input numbers into an array
+2. Max Heapify
+3. Build the heap
+4. Delete the root
+5. Print the heap
+-1. Quit
+-1

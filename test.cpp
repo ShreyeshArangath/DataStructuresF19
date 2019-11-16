@@ -1,65 +1,46 @@
 #include <iostream>
-#define SIZE 100
+#include <fstream>
+#include <cstring>
+#define MAX 26
+#define TRUE 1
+#define FALSE 0
 
 using namespace std;
 
-void max_heapify(int heap[], int root, int size){
-    int temp;
-    int left_child_index = 2*root+1;
-    int right_child_index = 2*root+2;
-    int largest=root;
-    if(left_child_index< size && heap[left_child_index]>heap[largest]){
-        largest=left_child_index;
-    }
-    if(right_child_index<size && heap[right_child_index]>heap[largest]){
-       largest=right_child_index;
-    }
-    if(largest!=root){
-        temp=heap[largest];
-        heap[largest]=heap[root];
-        heap[root]=temp;
+typedef struct VerticeNode{
+    int weight;
+}graph_vertice_t;
 
-        max_heapify(heap, largest, size);
-    }
+int getIndex(char val){
+    return int(val)-65;
 }
 
-void build_heap(int heap[], int size){
-    int i = size/2 -1;
-    while(i>=0){
-        max_heapify(heap, i, size);
-        i--;
+int read_csv(char* file_name, graph_vertice_t graph[MAX][MAX]){
+    FILE* inputFile;
+    char vertice1;
+    char vertice2;
+    int weight;
+    inputFile=fopen("test.csv","r");
+    if(inputFile==NULL){
+        cout<<"Error reading the file"<<endl;
+        return 0;
     }
+    while(fscanf(inputFile, "%c,%c,%d\n", &vertice1, &vertice2, &weight)==3){
+        cout<<vertice1<<vertice2<<weight<<endl;
+        createNewEdge(graph, vertice1, vertice2, weight);
+    }
+    fclose(inputFile);
+    return 1;
 }
 
-
-void print_arr(int heap[], int last){
-    for(int i=0; i<last; i++){
-        cout<<heap[i]<<" ";
-    }
-    cout<<endl;
-}
-
-int get_array(int heap[]){
-    int val;
-    int i=0;
-    cout<<"Please enter a number (-1 to quit): "<<endl;
-    cin>>val;
-    while(val!=-1 && i<SIZE){
-        heap[i]=val;
-        i++;
-        cout<<"Please enter a number (-1 to quit): "<<endl;
-        cin>>val;
-    }
-    return i+1;
+int createNewEdge(graph_vertice_t graph[MAX][MAX], char vertice, char connectedTo, int weight){
+    graph[getIndex(vertice)][getIndex(connectedTo)].weight = weight;
+    return TRUE;
 }
 
 int main(){
-    int heap[SIZE];
-    int heap_size;
-    heap_size=get_array(heap);
-    print_arr(heap,heap_size);
-    build_heap(heap,heap_size);
-    print_arr(heap,heap_size);
+    graph_vertice_t graph[MAX][MAX];
+    char filename[]="test.csv";
+    read_csv(filename, graph);
     return 0;
-
 }
