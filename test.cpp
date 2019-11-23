@@ -26,14 +26,14 @@ void init_hash_map(linked_list_t** hash_map, int size){
     }
 }
 
-linked_list_node_t* insertInOrder(int data, linked_list_node_t *head){
-    linked_list_node_t *cur = head; //Pointer to the current node in the list
-    linked_list_node_t *prev = head;//Pointer to the previous node in the list
-    linked_list_node_t *new_node = createNode(data); //Creates a new node to be inserted into the list. 
+linked_list_t* insertInOrder(int data, linked_list_t *head){
+    linked_list_t *cur = head; //Pointer to the current node in the list
+    linked_list_t *prev = head;//Pointer to the previous node in the list
+    linked_list_t *new_node = createNode(data); //Creates a new node to be inserted into the list. 
 
     if (head == NULL){
         head=new_node;
-        return *head;
+        return head;
     }
     else if (head->data >= data){
         new_node->next=head;
@@ -58,11 +58,8 @@ int INSERT(linked_list_t** hash_map, int key, int size){
        hash_map[index]->next=new_node;
    }
    else{
-      
-       
-    //    linked_list_t* temp = hash_map[index]->next;
-    //    hash_map[index]->next = new_node;
-    //    hash_map[index]->next->next=temp;
+      insertInOrder(key, hash_map[index]->next);
+
    }
    return index;
 }
